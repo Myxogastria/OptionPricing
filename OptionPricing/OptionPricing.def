@@ -1,0 +1,4 @@
+LIBRARY OptionPricing.dll
+
+EXPORTS
+	OptionPrice

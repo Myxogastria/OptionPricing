@@ -9,5 +9,6 @@
 
 // プリコンパイルするヘッダーをここに追加します
 #include "framework.h"
+#include <OAIdl.h> // LPVARIANTがVARIANT*として定義されている
 
 #endif //PCH_H

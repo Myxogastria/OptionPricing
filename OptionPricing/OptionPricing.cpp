@@ -1,9 +1,9 @@
 #include "pch.h"
 #include "OptionPricing.h"
 
-OPTIONPRICING_API double WINAPI OptionPrice(LPSAFEARRAY argNames, LPSAFEARRAY argValues) {
+OPTIONPRICING_API double WINAPI OptionPrice(LPSAFEARRAY* argNames, LPSAFEARRAY* argValues) {
 	VARTYPE vt;
-	HRESULT hResult = SafeArrayGetVartype(argNames, &vt);
+	HRESULT hResult = SafeArrayGetVartype(*argNames, &vt);
 
 	if (FAILED(hResult)) {
 		MessageBox(NULL, L"failed", L"dll", MB_OK | MB_ICONERROR);

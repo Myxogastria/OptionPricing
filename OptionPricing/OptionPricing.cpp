@@ -5,15 +5,15 @@ void hTest(HRESULT h) {
 	switch (h)
 	{
 	case S_OK:
-		MessageBox(NULL, L"OK", L"DLL", MB_OK);
+		MessageBox(NULL, L"OK", L"hTest", MB_OK);
 		break;
 
 	case E_INVALIDARG:
-		MessageBox(NULL, L"invalid arg", L"DLL", MB_OK);
+		MessageBox(NULL, L"invalid arg", L"hTest", MB_OK);
 		break;
 
 	case DISP_E_BADINDEX:
-		MessageBox(NULL, L"badindex", L"DLL", MB_OK);
+		MessageBox(NULL, L"badindex", L"hTest", MB_OK);
 		break;
 
 	default:

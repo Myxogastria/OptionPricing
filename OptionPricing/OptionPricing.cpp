@@ -11,10 +11,20 @@ OPTIONPRICING_API double WINAPI OptionPrice(LPVARIANT argNames, LPVARIANT argVal
 		return 0;
 	}
 
+	IDispatch* pdispVal;
+	double retval = 0.0;
 	switch (argNames->vt)
 	{
 	case VT_DISPATCH:
 		MessageBox(NULL, L"argNames->vt is VT_DISPATCH", L"DLL", MB_OK);
+		pdispVal = *(argNames->ppdispVal);
+		if (!pdispVal) {
+			MessageBox(NULL, L"pdispVal is NULL", L"DLL", MB_OK | MB_ICONERROR);
+			break;
+		}
+		//sizeof(ppdispVal) = sizeof(*ppdispVal) = 4
+		retval = sizeof(pdispVal);
+		return retval;
 		break;
 	default:
 		break;

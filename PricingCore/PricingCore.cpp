@@ -2,10 +2,26 @@
 //
 
 #include <iostream>
+#include "Argument.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+    Argument<double> argDouble;
+    argDouble.add("expiry", 1);
+    argDouble.add("strike", 100);
+
+    std::cout << "strike: " << argDouble.get("strike") << std::endl;
+    std::cout << "used all arguments: " << argDouble.usedAllArguments() << std::endl;
+    std::cout << "expiry: " << argDouble.get("expiry") << std::endl;
+    std::cout << "used all arguments: " << argDouble.usedAllArguments() << std::endl;
+
+    Argument<std::string> argString;
+    argString.add("type", "call");
+    std::cout << "type: " << argString.get("type") << std::endl;
+    std::cout << "used all arguments: " << argString.usedAllArguments() << std::endl;
+
+    return 0;
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー

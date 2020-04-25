@@ -2,5 +2,5 @@
 
 extern "C" {
 #define OPTIONPRICING_API __declspec(dllexport)
-	OPTIONPRICING_API double WINAPI OptionPrice(LPVARIANT argNames, LPVARIANT argValues);
+	OPTIONPRICING_API double WINAPI OptionPriceDll(LPVARIANT argNames, LPVARIANT argValues);
 }

@@ -30,3 +30,30 @@ private:
 	std::map<std::string, T> argumentMap;
 	std::map<std::string, bool> usedMap;
 };
+
+class ArgumentContainer {
+public:
+	void addDouble(const std::string& name, const double& value) {
+		argDouble.add(name, value);
+	}
+
+	double getDouble(const std::string& name) {
+		return argDouble.get(name);
+	}
+
+	void addString(const std::string& name, const std::string& value) {
+		argString.add(name, value);
+	}
+
+	std::string getString(const std::string& name) {
+		return argString.get(name);
+	}
+
+	bool usedAllArguments() const {
+		return argDouble.usedAllArguments() & argString.usedAllArguments();
+	}
+
+private:
+	Argument<double> argDouble;
+	Argument<std::string> argString;
+};

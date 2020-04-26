@@ -21,6 +21,18 @@ int main()
     std::cout << "type: " << argString.get("type") << std::endl;
     std::cout << "used all arguments: " << argString.usedAllArguments() << std::endl;
 
+    ArgumentContainer arg;
+    arg.addDouble("expiry", 1);
+    arg.addDouble("strike", 100);
+    arg.addString("type", "call");
+
+    std::cout << "strike: " << arg.getDouble("strike") << std::endl;
+    std::cout << "used all arguments: " << arg.usedAllArguments() << std::endl;
+    std::cout << "type: " << arg.getString("type") << std::endl;
+    std::cout << "used all arguments: " << arg.usedAllArguments() << std::endl;
+    std::cout << "expiry: " << arg.getDouble("expiry") << std::endl;
+    std::cout << "used all arguments: " << arg.usedAllArguments() << std::endl;
+
     return 0;
 }
 

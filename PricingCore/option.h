@@ -2,20 +2,21 @@
 
 #include "Argument.h"
 
-double pricing(ArgumentContainer arg);
+double pricing(const ArgumentContainer& arg);
 
 class Option {
-	// the subclasses must have a constructor taking ArgumentContainer
+	// the subclasses must have a constructor taking const ArgumentContainer&
 public:
 	virtual double getPrice() = 0;
+	virtual ~Option() {}
 };
 
 class OptionFactory {
 public:
-	typedef Option* (*CreateOptionFunction)(ArgumentContainer);
+	typedef Option* (*CreateOptionFunction)(const ArgumentContainer&);
 
 	static OptionFactory& getInstance();
-	void registerOption(std::string type, CreateOptionFunction pfun);
+	void registerOption(const std::string& type, const CreateOptionFunction& pfun);
 	Option* createOption(ArgumentContainer arg);
 	~OptionFactory() {};
 
@@ -28,12 +29,12 @@ private:
 
 template <class T> class OptionRegistrator {
 public:
-	OptionRegistrator(std::string type) {
+	OptionRegistrator(const std::string& type) {
 		OptionFactory& factory = OptionFactory::getInstance();
 		factory.registerOption(type, OptionRegistrator<T>::createOption);
 	}
 
-	static Option* createOption(ArgumentContainer arg) {
+	static Option* createOption(const ArgumentContainer& arg) {
 		return new T(arg);
 	}
 };

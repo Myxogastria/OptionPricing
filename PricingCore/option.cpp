@@ -1,6 +1,6 @@
 #include "option.h"
 
-double pricing(ArgumentContainer arg) {
+double pricing(const ArgumentContainer& arg) {
 	Option* pOption = OptionFactory::getInstance().createOption(arg);
 	return pOption->getPrice();
 }
@@ -11,7 +11,7 @@ OptionFactory& OptionFactory::getInstance() {
 	return singleton;
 }
 
-void OptionFactory::registerOption(std::string type, OptionFactory::CreateOptionFunction pfun) {
+void OptionFactory::registerOption(const std::string& type, const OptionFactory::CreateOptionFunction& pfun) {
 	creatorMap.insert(std::make_pair(type, pfun));
 }
 

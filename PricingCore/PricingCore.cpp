@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Argument.h"
+#include "option.h"
 
 int main()
 {
@@ -32,6 +33,19 @@ int main()
     std::cout << "used all arguments: " << arg.usedAllArguments() << std::endl;
     std::cout << "expiry: " << arg.getDouble("expiry") << std::endl;
     std::cout << "used all arguments: " << arg.usedAllArguments() << std::endl;
+
+    ArgumentContainer argTest;
+    argTest.addString("type", "test");
+    std::cout << "price: " << pricing(argTest) << std::endl;
+
+    //ArgumentContainer argCall;
+    //argCall.addString("type", "call");
+    //argCall.addDouble("expiry", 1);
+    //argCall.addDouble("strike", 100);
+    //argCall.addDouble("spot", 100);
+    //argCall.addDouble("vol", 0.3);
+    //argCall.addDouble("risk_free", 0.02);
+    //std::cout << "price: " << pricing(argCall) << std::endl;
 
     return 0;
 }

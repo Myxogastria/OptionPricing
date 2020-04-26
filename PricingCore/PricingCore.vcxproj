@@ -147,6 +147,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConcreteOptions.cpp" />
+    <ClCompile Include="option.cpp" />
+    <ClCompile Include="OptionRegistration.cpp" />
     <ClCompile Include="PricingCore.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -154,6 +157,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Argument.h" />
+    <ClInclude Include="ConcreteOptions.h" />
+    <ClInclude Include="option.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "OptionPricing.h"
-#include "option.h"
+#include "PricingCore.h"
 
 // https://stackoverflow.com/questions/6284524/bstr-to-stdstring-stdwstring-and-vice-versa
 std::string ConvertWCSToMBS(const wchar_t* pstr, long wslen)
@@ -65,8 +65,9 @@ OPTIONPRICING_API double WINAPI OptionPriceDll(LPVARIANT argNames, LPVARIANT arg
 	h = SafeArrayGetUBound(argNames->parray, 2, &ubound2);
 
 	ArgumentContainer arg;
-	for (long i1 = lbound1; i1 < ubound1; i1++) {
-		for (long i2 = lbound2; i2 < ubound2; i2++) {
+	for (long i1 = lbound1; i1 <= ubound1; i1++) {
+		//for (long i2 = lbound2; i2 < ubound2; i2++) {
+		for (long i2 = lbound2; i2 <= lbound2; i2++) {
 			long idx[2] = { i1, i2 };
 			VARIANT vName;
 			h = SafeArrayGetElement(argNames->parray, idx, &vName);
